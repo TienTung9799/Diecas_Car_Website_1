@@ -1,88 +1,167 @@
-import { Instagram, Facebook, Youtube, Mail, MapPin, Phone, ArrowUpRight } from 'lucide-react';
+import {
+  Instagram,
+  Facebook,
+  MapPin,
+  Phone,
+} from 'lucide-react';
+
 import { Link } from 'react-router-dom';
 
 export function Footer() {
   return (
-    <footer className="bg-brand-black border-t border-white/5 pt-20 pb-10 overflow-hidden relative">
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] bg-brand-red/10 blur-[120px] rounded-full pointer-events-none" />
-      
+    <footer className="bg-black border-t border-white/10 pt-20 pb-10 relative overflow-hidden">
+
+      {/* GLOW */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-red/10 blur-[120px] rounded-full pointer-events-none" />
+
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-20">
+
+        {/* TOP */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-20">
+
+          {/* BRAND */}
           <div>
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 bg-brand-red flex items-center justify-center rounded-sm skew-x-[-12deg]">
-                <span className="text-white font-bold skew-x-[12deg]">T</span>
+
+            <div className="flex items-center gap-3 mb-6">
+
+              <div className="w-10 h-10 bg-brand-red rounded-md flex items-center justify-center">
+                <span className="text-white font-black text-lg">
+                  T
+                </span>
               </div>
-              <span className="text-xl font-display font-bold text-white uppercase italic skew-x-[-12deg]">Tùng Tuned</span>
+
+              <div className="flex flex-col">
+
+                <span className="text-2xl font-black uppercase italic text-white">
+                  Tùng Tuned
+                </span>
+
+                <span className="text-[10px] uppercase tracking-[0.3em] text-brand-red">
+                  Car Passion
+                </span>
+
+              </div>
             </div>
-            <p className="text-slate-400 text-sm leading-relaxed mb-6">
-              Vietnam's premier custom 1/24 scale model car workshop. We bring automotive passion into a miniature world with high-end craftsmanship and authentic details.
+
+            <p className="text-slate-400 leading-relaxed max-w-sm">
+              Chuyên xe mô hình tỉ lệ 1/24, custom build, bodykit, wheels và các sản phẩm dành cho collector đam mê automotive culture.
             </p>
-            <div className="flex gap-4">
-              {[Instagram, Facebook, Youtube].map((Icon, i) => (
-                <a key={i} href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center transition-colors hover:bg-white hover:text-brand-black">
-                  <Icon size={18} />
-                </a>
-              ))}
+
+          </div>
+
+          {/* MENU */}
+          <div>
+
+            <h3 className="text-white font-bold uppercase tracking-[0.2em] mb-6">
+              MENU
+            </h3>
+
+            <div className="flex flex-col gap-4 text-slate-400">
+
+              <Link
+                to="/"
+                className="hover:text-brand-red transition"
+              >
+                GIỚI THIỆU
+              </Link>
+
+              <Link
+                to="/model-cars"
+                className="hover:text-brand-red transition"
+              >
+                XE MÔ HÌNH
+              </Link>
+
+              <Link
+                to="/custom-parts"
+                className="hover:text-brand-red transition"
+              >
+                LINH KIỆN CUSTOM
+              </Link>
+
+              <Link
+                to="/custom-cars"
+                className="hover:text-brand-red transition"
+              >
+                XE CUSTOM
+              </Link>
+
+              <Link
+                to="/contact"
+                className="hover:text-brand-red transition"
+              >
+                LIÊN HỆ
+              </Link>
+
             </div>
           </div>
 
+          {/* CONTACT */}
           <div>
-            <h4 className="text-white font-display font-bold uppercase tracking-widest mb-6">Explore</h4>
-            <ul className="space-y-4">
-              {['Inventory', 'Custom Parts', 'Build Gallery', 'Workshop', 'Install Guides'].map((item) => (
-                <li key={item}>
-                  <Link to={`/${item.toLowerCase().replace(' ', '-')}`} className="text-slate-400 text-sm hover:text-brand-red transition-colors flex items-center group">
-                    <ArrowUpRight size={14} className="mr-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
 
-          <div>
-            <h4 className="text-white font-display font-bold uppercase tracking-widest mb-6">Contact</h4>
-            <ul className="space-y-4 text-sm">
-              <li className="flex items-start gap-3 text-slate-400">
-                <MapPin className="text-brand-red shrink-0" size={18} />
-                <span>Ho Chi Minh City, Vietnam</span>
-              </li>
-              <li className="flex items-center gap-3 text-slate-400">
-                <Phone className="text-brand-red shrink-0" size={18} />
-                <span>+84 123 456 789</span>
-              </li>
-              <li className="flex items-center gap-3 text-slate-400">
-                <Mail className="text-brand-red shrink-0" size={18} />
-                <span>contact@tungtuned.com</span>
-              </li>
-            </ul>
-          </div>
+            <h3 className="text-white font-bold uppercase tracking-[0.2em] mb-6">
+              CONTACT
+            </h3>
 
-          <div className="bg-brand-gray/30 p-6 rounded-lg metallic-border">
-            <h4 className="text-white font-display font-bold uppercase tracking-widest mb-4">Join the Garage</h4>
-            <p className="text-slate-400 text-xs mb-4">Get exclusive looks at our latest custom builds and new part releases.</p>
-            <form className="flex gap-2">
-              <input 
-                type="email" 
-                placeholder="Email address"
-                className="bg-brand-black/50 border border-white/10 rounded px-3 py-2 text-sm w-full outline-none focus:border-brand-red"
-              />
-              <button className="bg-brand-red px-3 py-2 rounded text-white transition-opacity hover:opacity-90">
-                <ArrowUpRight size={18} />
-              </button>
-            </form>
+            <div className="flex flex-col gap-5 text-slate-400">
+
+              <div className="flex items-start gap-3">
+                <Phone className="text-brand-red shrink-0 mt-1" size={18} />
+                <div>
+                  <p>0329816113</p>
+                  <p className="text-sm text-slate-500">
+                    Zalo / Phone
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <MapPin className="text-brand-red shrink-0 mt-1" size={18} />
+                <div>
+                  <p>Quang Trung, Gò Vấp</p>
+                  <p className="text-sm text-slate-500">
+                    Hồ Chí Minh, Việt Nam
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            {/* SOCIAL */}
+            <div className="flex gap-4 mt-8">
+
+              <a
+                href="#"
+                className="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center hover:bg-brand-red hover:border-brand-red transition"
+              >
+                <Instagram size={18} />
+              </a>
+
+              <a
+                href="#"
+                className="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center hover:bg-brand-red hover:border-brand-red transition"
+              >
+                <Facebook size={18} />
+              </a>
+
+            </div>
+
           </div>
         </div>
 
-        <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-slate-500 text-xs">© 2026 Tùng Tuned. All rights reserved.</p>
-          <div className="flex gap-6 text-slate-500 text-xs">
-            <a href="#" className="hover:text-white">Privacy Policy</a>
-            <a href="#" className="hover:text-white">Terms of Service</a>
-            <a href="#" className="hover:text-white">Shipping</a>
-          </div>
+        {/* BOTTOM */}
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+
+          <p className="text-slate-500 text-sm">
+            © 2026 Tùng Tuned — Premium Miniature Garage
+          </p>
+
+          <p className="text-slate-600 text-xs uppercase tracking-[0.2em]">
+            1/24 Scale • Custom Garage • Collector Passion
+          </p>
+
         </div>
+
       </div>
     </footer>
   );
