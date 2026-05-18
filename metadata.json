@@ -1,0 +1,6 @@
+{
+  "name": "Tùng Tuned",
+  "description": "Premium custom 1/24 scale model car showcase and workshop. Cinematic automotive culture for collectors.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
